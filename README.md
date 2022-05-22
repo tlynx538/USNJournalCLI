@@ -9,29 +9,39 @@ This API allows to create, view, change or delete [USN Journals](https://en.wiki
 The USN Journal displays the USN Reason Codes from the files that has been modified. Using this USN Reason Codes it can be determined if this file can be backed up or not.
 
 The CLI implementation only includes the following operations:
+
 - Listing the drives
+
   ```
   The GetDrives method from DriveInfo retrieves the NTFS partitions
   DriveInfo[] volumes = DriveInfo.GetDrives();
   ```
+
 - Creation of the USN Journal
 
    The NtfsUsnJournal constructor is used in specifying the drive where the journal is selected to be created where choice contains the array index.
+
    ```
    _usnJournal = new NtfsUsnJournal(volumes[choice]);
    ```
+
    The CreateUsnJournal actually creates the USN Journal, the parameters mentioned are the maxSize and the allocationData (the sizes mentioned in the snippet below are adopted from the actual implementation from StCroixSkipper's)
    ```
    NtfsUsnJournal.UsnJournalReturnCode rtn = _usnJournal.CreateUsnJournal(1000 * 1024, 16 * 1024);
    ```
+
 - Querying the USN Journal state 
-   We can pass the _usnJournal object as a reference to the Win32 Api Class(Win32Api.cs) to retrieve the state of the USN Journal, as this API uses P/Invoke to translate between native component and the C# code (managed). We are specfically performing the communication using`System.Runtime.InteropServices;`
+   We can pass the _usnJournal object as a reference to the Win32 Api Class(Win32Api.cs) to retrieve the state of the USN Journal, as this API uses [P/Invoke](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke) to translate between native component and the C# code (managed). We are specfically performing the communication using `System.Runtime.InteropServices;`
+
    ```
     Win32Api.USN_JOURNAL_DATA journalState = new Win32Api.USN_JOURNAL_DATA();
     NtfsUsnJournal.UsnJournalReturnCode returnCode = _usnJournal.GetUsnJournalState(ref journalState);
    ```
+
 - Updating the USN Journal by Listing Files and Folders within the directory
+
 - Deleting the Journal
+
     ```
     rtn = _usnJournal.DeleteUsnJournal(_usnCurrentJournalState);
     ```
