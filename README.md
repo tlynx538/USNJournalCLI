@@ -31,6 +31,7 @@ The CLI implementation only includes the following operations:
    ```
 
 - Querying the USN Journal state 
+
    We can pass the _usnJournal object as a reference to the Win32 Api Class(Win32Api.cs) to retrieve the state of the USN Journal, as this API uses [P/Invoke](https://docs.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke) to translate between native component and the C# code (managed). We are specfically performing the communication using `System.Runtime.InteropServices;`
 
    ```
