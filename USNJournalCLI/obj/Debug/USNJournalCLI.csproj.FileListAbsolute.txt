@@ -1,0 +1,8 @@
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\bin\Debug\USNJournalCLI.exe.config
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\bin\Debug\USNJournalCLI.exe
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\bin\Debug\USNJournalCLI.pdb
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\obj\Debug\USNJournalCLI.csproj.AssemblyReference.cache
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\obj\Debug\USNJournalCLI.csproj.SuggestedBindingRedirects.cache
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\obj\Debug\USNJournalCLI.csproj.CoreCompileInputs.cache
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\obj\Debug\USNJournalCLI.exe
+C:\Users\vjaiw\source\repos\USNJournalCLI\USNJournalCLI\obj\Debug\USNJournalCLI.pdb
