@@ -25,13 +25,16 @@ The CLI implementation only includes the following operations:
    NtfsUsnJournal.UsnJournalReturnCode rtn = _usnJournal.CreateUsnJournal(1000 * 1024, 16 * 1024);
    ```
 - Querying the USN Journal state 
-   We can pass the _usnJournal object as a reference to the Win32 Api Class(Win32Api.cs) to retrieve the state of the USN Journal, as this API uses P/Invoke to translate between native component and the C# code (managed). We are specfically performing the communication using `System.Runtime.InteropServices;`
+   We can pass the _usnJournal object as a reference to the Win32 Api Class(Win32Api.cs) to retrieve the state of the USN Journal, as this API uses P/Invoke to translate between native component and the C# code (managed). We are specfically performing the communication using`System.Runtime.InteropServices;`
    ```
     Win32Api.USN_JOURNAL_DATA journalState = new Win32Api.USN_JOURNAL_DATA();
     NtfsUsnJournal.UsnJournalReturnCode returnCode = _usnJournal.GetUsnJournalState(ref journalState);
    ```
 - Updating the USN Journal by Listing Files and Folders within the directory
 - Deleting the Journal
+    ```
+    rtn = _usnJournal.DeleteUsnJournal(_usnCurrentJournalState);
+    ```
 
 ### Sample Output -
 ```
